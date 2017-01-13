@@ -82,7 +82,7 @@ try {
 
 	// page flow custom code begin
 
-	var allContractorsExist = false;
+	var allContractorsExist = true;
 	var lpTypes = new Array();
 	var commentText = "Each permit requires a specified contractor license. Please add all required contractor types to the license professional list. This application requires the following contractors to be in the list. ";
 
