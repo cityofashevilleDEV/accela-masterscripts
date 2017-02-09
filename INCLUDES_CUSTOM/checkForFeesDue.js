@@ -21,6 +21,7 @@ if (appMatch('Permits/*/*/*') && newFees > 0) {
 }
 
 function feeGetTotByDateRange2(a,b){
+	var capContResult = aa.people.getCapContactByCapID(capId);
 	var c=new Date(a);
 	c.setHours(0,0,0,0);
 	var d=new Date(b);
