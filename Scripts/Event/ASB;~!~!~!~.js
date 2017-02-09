@@ -57,3 +57,4 @@ if (appMatch('Permits/*/*/*') && newFees > 0) {
                 showMessage = true; comment("<font size=small><b>Un-Invoiced Fees:</b></font><br><br>The permit you are trying to issue or final has assessed fees that have NOT been invoiced. Those fees need to be invoiced or removed prior to the permit being issued or finaled.<br><br>");
                 cancel = true;
 }
+}
