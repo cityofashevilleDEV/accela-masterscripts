@@ -54,7 +54,7 @@ if (appMatch('Permits/*/*/*') && balanceDue > 0) {
 // Note from Keith H -- Check if there a Assessed fees:    Check for NON Invoiced fees
                 //newFees = feeGetTotByDateRange("01/01/2000","01/01/2030","NEW"); 
                 newFees = 1
-                comment("NEW fee total = "+newFees); comment("Workflow status = "+wfStatus);
+             //   comment("NEW fee total = "+newFees); comment("Workflow status = "+wfStatus);
 if (appMatch('Permits/*/*/*') && newFees > 0) {
                 showMessage = true; comment("<font size=small><b>Un-Invoiced Fees:</b></font><br><br>The permit you are trying to issue or final has assessed fees that have NOT been invoiced. Those fees need to be invoiced or removed prior to the permit being issued or finaled.<br><br>");
                 cancel = true;
