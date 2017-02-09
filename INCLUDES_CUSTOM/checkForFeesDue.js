@@ -1,3 +1,4 @@
+
 function checkForFeesDue() {
 ////Checking for fees due (invoiced & non-invoiced) and if so, stopping a permit from being issued internally
 
@@ -10,7 +11,7 @@ if (appMatch('Permits/*/*/*') && balanceDue > 0) {
 }
 //If there are non-invoiced fees, we should not be able to issue a permit (internally)
 // Note from Keith H -- Check if there a Assessed fees:    Check for NON Invoiced fees
-                newFees = feeGetTotByDateRange("01/01/2000","01/01/2030","NEW"); 
+                newFees = feeGetTotByDateRange2("01/01/2000","01/01/2030","NEW"); 
                 newFees = 1
                 comment("NEW fee total = "+newFees); comment("Workflow status = "+wfStatus);
 if (appMatch('Permits/*/*/*') && newFees > 0) {
@@ -18,3 +19,24 @@ if (appMatch('Permits/*/*/*') && newFees > 0) {
                 cancel = true;
 }
 }
+
+function feeGetTotByDateRange2(a,b){
+	var c=new Date(a);
+	c.setHours(0,0,0,0);
+	var d=new Date(b);
+	d.setHours(23,59,59,999);
+	var e=!1,f=new Array;
+	if(arguments.length>2)
+		{e=!0;
+		for(var g=2;g<arguments.length;g++)
+			f.push(arguments[g])
+		}var h=aa.fee.getFeeItems(capId);
+		if(!h.getSuccess())return logDebug("**ERROR: getting fee items: "+capContResult.getErrorMessage()),!1;
+		var i=h.getOutput(),
+		j=0,
+		k=new Date;
+		for(ff in i)
+			k.setTime(i[ff].getApplyDate().getEpochMilliseconds()),
+		k>=c&&k<=d&&(!e||exists(i[ff].getFeeitemStatus(),
+			f))&&(j+=i[ff].getFee());return j
+	}
