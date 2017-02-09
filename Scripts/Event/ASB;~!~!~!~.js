@@ -42,6 +42,7 @@ if (publicUser && appMatch('Permits/*/*/Repair-Replacement') && AInfo['Scope inc
 }
 
 ////Checking for fees due (invoiced & non-invoiced) and if so, stopping a permit from being issued internally
+var capContResult = aa.people.getCapContactByCapID(capId);
 //If there are invoiced fees (balance due), we should not be able to issue a permit (internally)
 // Keith H Fees due logic To check if there are invoiced fees
 if (appMatch('Permits/*/*/*') && balanceDue > 0) {
