@@ -22,7 +22,7 @@ if (matches(wfStatus, 'Issue', 'Reissue', 'Issue Partial') && (isTaskActive('HRC
 if (matches(wfStatus, 'Issue', 'Reissue', 'Issue Partial')) {
 	if (appMatch('Permits/*/*/*') && balanceDue > 0) {
 	                showMessage = true;
-	                comment('<font size=small><b>Balance Due: '+balanceDue'</b></font><br><br>The Balance Due will need to be paid before the permit can be issued.<br><br>');
+	                comment('<font size=small><b>Balance Due: </b></font><br><br>The Balance Due will need to be paid before the permit can be issued.<br><br>');
 	                cancel = true;
 	}
 	//If there are non-invoiced fees, we should not be able to issue a permit (internally)
