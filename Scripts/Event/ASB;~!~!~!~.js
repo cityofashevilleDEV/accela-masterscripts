@@ -41,5 +41,4 @@ if (publicUser && appMatch('Permits/*/*/Repair-Replacement') && AInfo['Scope inc
 	cancel = true;
 }
 
-checkForFeesDue();
 
