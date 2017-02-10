@@ -22,14 +22,15 @@ if (matches(wfStatus, 'Issue', 'Reissue', 'Issue Partial') && (isTaskActive('HRC
 if (matches(wfStatus, 'Issue', 'Reissue', 'Issue Partial')) {
 	if (appMatch('Permits/*/*/*') && balanceDue > 0) {
 	                showMessage = true;
-	                comment('<font size=small><b>Balance Due:</b></font><br><br>The Balance Due will need to be paid before the permit can be issued.<br><br>');
+	                comment('<font size=small><b>Balance Due: '+balanceDue'</b></font><br><br>The Balance Due will need to be paid before the permit can be issued.<br><br>');
 	                cancel = true;
 	}
 	//If there are non-invoiced fees, we should not be able to issue a permit (internally)
 	// Note from Keith H -- Check if there a Assessed fees:    Check for NON Invoiced fees
-	                newFees = feeGetTotByDateRange("01/01/2000","01/01/2030","NEW"); 
-	                comment("NEW fee total = "+newFees); comment("Workflow status = "+wfStatus);
+
 	if (appMatch('Permits/*/*/*') && newFees > 0) {
+			        newFees = feeGetTotByDateRange("01/01/2000","01/01/2030","NEW"); 
+	                comment("NEW fee total = "+newFees); comment("Workflow status = "+wfStatus);
 	                showMessage = true; comment("<font size=small><b>Un-Invoiced Fees:</b></font><br><br>The permit you are trying to issue or final has assessed fees that have NOT been invoiced. Those fees need to be invoiced or removed prior to the permit being issued or finaled.<br><br>");
 	                cancel = true;
 	}
