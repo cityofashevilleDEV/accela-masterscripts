@@ -10,12 +10,10 @@ if (publicUser && !appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') &
 	comment('<font size=small><b>Landmark:</b></font><br><br>You will need to come to our office to get a permit on a Landmark structure.<br><br>');
 	cancel = true;
 }
-//WOID: 93659
-//Description:  email notification to Alex to let her know that somebody needs an Historic Resources Commission application.
+
 if (publicUser && !appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && AInfo['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
-	comment('<font size=small><b>HRC Overlay:</b></font><br><br>You will need to come to our office to get a permit because this location is in the Historic District.<br><br>Please visit this link to proactively fill out the application form: http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm<br><br>');
-   email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+currentUserID+' Attempted','An on-line HRC application has been attempted by '+currentUserID+' and it requires your attention.');
+	comment('<font size=small><b>HRC Overlay:</b></font><br><br>You will need to come to our office to get a permit because this location is in the Historic District.<br><br>');
 	cancel = true;
 }
 
