@@ -162,9 +162,12 @@ if (parcel) {
 	loadParcelAttributesTPS(paArray);
 }
 
+//WOID: 93659
+//Description:  email notification to Alex to let her know that somebody needs an Historic Resources Commission application.
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
-	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.');
+	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  You may visit this web page to fill out the application form: http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm');
+  email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+currentUserID+' Attempted','An on-line HRC application has been attempted by '+currentUserID+' and it requires your attention.');
 }
 
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.LANDMARK'] == 'Yes') {
