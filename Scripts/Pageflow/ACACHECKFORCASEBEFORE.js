@@ -166,7 +166,7 @@ if (parcel) {
 //Description:  email notification to Alex to let her know that somebody needs an Historic Resources Commission application.
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
-	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  Click <a href="http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm">here</a> to fill out an application.');
+	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  Click <a href="http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm" target="_blank">HERE</a> to fill out an application.');
   email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+currentUserID+' Attempted','An on-line HRC application has been attempted by '+currentUserID+' and it requires your attention.');
 }
 
