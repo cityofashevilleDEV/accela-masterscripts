@@ -21,9 +21,3 @@ if (publicuser && appMatch('*/*/*/Home Stay')) {
 if (publicuser && appMatch('Permits/Event-Temporary Use/NA/NA')) {
 	email('atesner@ashevillenc.gov','noreply@ashevillenc.gov','On-Line Event '+capIDString+' Payment Applied','An on-line payment has been applied on the Event-Temporary record '+capIDString+' and it requires your attention.');
 	}
-
-//WOID: 93656
-//Description: Send an email to general PAC address anytime a payment is made online.
-if (publicuser) {
-	email('PAC@ashevillenc.gov','noreply@ashevillenc.gov','On-Line '+capIDString+' Payment Applied','An on-line payment has been applied on the record '+capIDString+' and it requires your attention.');
-	}
