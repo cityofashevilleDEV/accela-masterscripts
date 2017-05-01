@@ -162,14 +162,35 @@ if (parcel) {
 	loadParcelAttributesTPS(paArray);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //WOID: 93659
 //Description:  email notification to Alex to let her know that somebody needs an Historic Resources Commission application.
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
 	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  Click <a href="http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm" target="_blank">HERE</a> to fill out an application.');
-  email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+aa.publicUser.publicUserModel("fullName")+' Attempted','An on-line HRC application has been attempted by '+aa.publicUser.getPublicUserByUserId("userID")+' and it requires your attention.');
+var personResult = aa.person.getUser(currentUserID);
+if (personResult.getSuccess())
+{
+	var personObj = personResult.getOutput();
+	//logDebug("personObj class: "+personObj.getClass());
+	if (personObj==null) // no user found
+	{
+		logDebug("**ERROR: Failed to get User");
+		return false;
+	}
 }
-/////////////
+else
+{
+	logDebug("**ERROR: Failed to get User: " + personResult.getErrorMessage());
+	return false;
+}
+var userFirst = personObj.getFirstName();
+var userMiddle = personObj.getMiddleName();
+var userLast = personObj.getLastName();
+var userName = userFirst + " " + userLast;
+email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+userName+' Attempted','An on-line HRC application has been attempted by '+aa.publicUser.getPublicUserByUserId("userID")+' and it requires your attention.');
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.LANDMARK'] == 'Yes') {
 	showMessage = true;
