@@ -175,8 +175,8 @@ if (personResult.getSuccess())
 	//logDebug("personObj class: "+personObj.getClass());
 	if (personObj==null) // no user found
 	{
-		logDebug("**ERROR: Failed to get User");
-		return false;
+		//logDebug("**ERROR: Failed to get User");
+		//return false;
 	}
 }
 else
