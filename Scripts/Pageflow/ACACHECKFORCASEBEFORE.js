@@ -181,8 +181,8 @@ if (personResult.getSuccess())
 }
 else
 {
-	logDebug("**ERROR: Failed to get User: " + personResult.getErrorMessage());
-	return false;
+	//logDebug("**ERROR: Failed to get User: " + personResult.getErrorMessage());
+	//return false;
 }
 var userFirst = personObj.getFirstName();
 var userMiddle = personObj.getMiddleName();
