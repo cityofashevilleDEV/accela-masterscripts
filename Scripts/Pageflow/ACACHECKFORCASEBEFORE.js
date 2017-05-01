@@ -167,8 +167,9 @@ if (parcel) {
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
 	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  Click <a href="http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm" target="_blank">HERE</a> to fill out an application.');
-  email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+aa.publicUser.getPublicUserByUserId("userID")+' Attempted','An on-line HRC application has been attempted by '+aa.publicUser.getPublicUserByUserId("userID")+' and it requires your attention.');
+  email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+aa.publicUser.publicUserModel("fullName")+' Attempted','An on-line HRC application has been attempted by '+aa.publicUser.getPublicUserByUserId("userID")+' and it requires your attention.');
 }
+/////////////
 
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.LANDMARK'] == 'Yes') {
 	showMessage = true;
