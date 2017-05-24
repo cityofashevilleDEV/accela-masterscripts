@@ -36,7 +36,7 @@ if (!appMatch('Permits/*/Existing Building/Reroof') && (appMatch('Permits/*/New 
 	email('smonson@ashevillenc.gov', 'noreply@ashevillenc.gov', 'River District Design Review Task', 'River District Design Review task assigned. ' + capIDString + ' - Please check Accela and update the record status.');
 }
 
-//KH 5-24-16 - when a parcel is located in a central business district, create add-hoc tasks:
+//5-24-16 - when a parcel is located in a central business district, create add-hoc tasks:
 if (appMatch('Planning/Development/*/*') && AInfo['ParcelAttribute.ZONING DISTRICT'] == 'CBD,') {
 	addAdHocTask('ADHOC TASKS', 'Encroachment Agreement', ' ', 'JBOONE'); //James Boone
         addAdHocTask('ADHOC TASKS', 'Granite - Running Bond', ' ', 'PWTBD'); //Public Works, To Be Determined
