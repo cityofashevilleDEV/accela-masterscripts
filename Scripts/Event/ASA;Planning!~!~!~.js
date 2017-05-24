@@ -35,4 +35,10 @@ if ((appMatch('*/*/Annexation/*') || appMatch('*/*/Landmark/*') || appMatch('*/*
 if (!appMatch('Permits/*/Existing Building/Reroof') && (appMatch('Permits/*/New Building/*') || appMatch('Permits/*/Existing Building/*') || appMatch('*/*/Remodel/*') || appMatch('*/*/Manufactured Home/*') || appMatch('*/*/Demolition/*') || appMatch('*/*/Addition/*') || appMatch('*/*/Accessory Structure/*') || appMatch('Permits/*/New/*') || appMatch('Permits/*/Site Work/*')) && AInfo['ParcelAttribute.RIVER DISTRICT'] == 'Yes') {
 	email('smonson@ashevillenc.gov', 'noreply@ashevillenc.gov', 'River District Design Review Task', 'River District Design Review task assigned. ' + capIDString + ' - Please check Accela and update the record status.');
 }
+
+//Keith added as test 5-23-16
+if (appMatch('Planning/Development/*/*') && AInfo['ParcelAttribute.ZONING DISTRICT'] == 'CBD,') {
+	addAdHocTask('ADHOC TASKS', 'Encroachment Agreement', ' ', 'ACOLE');
+        addAdHocTask('ADHOC TASKS', 'Granite - Running Bond', ' ', 'ACOLE');
+}
 //end replaced branch: APP_SA_BRANCH_PLANNING;
