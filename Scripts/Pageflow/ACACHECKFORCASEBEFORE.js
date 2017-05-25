@@ -164,32 +164,10 @@ if (parcel) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //WOID: 93659
-//Description:  email notification to Alex to let her know that somebody needs an Historic Resources Commission application.
+//Description:  Inform applicant to call Alex Cole.
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
-	comment('This application cannot proceed because the parcel is identified in the HRC Overlay.  Please come to the permit center to apply for this permit.  Click <a href="http://www.ashevillenc.gov/departments/urban_design/historic/appl_forms.htm" target="_blank">HERE</a> to fill out an application.');
-var personResult = aa.person.getUser(currentUserID);
-if (personResult.getSuccess())
-{
-	var personObj = personResult.getOutput();
-	//logDebug("personObj class: "+personObj.getClass());
-	if (personObj==null) // no user found
-	{
-		//logDebug("**ERROR: Failed to get User");
-		//return false;
-	}
-}
-else
-{
-	//logDebug("**ERROR: Failed to get User: " + personResult.getErrorMessage());
-	//return false;
-}
-var userFirst = personObj.getFirstName();
-var userMiddle = personObj.getMiddleName();
-var userLast = personObj.getLastName();
-var userName = userFirst + " " + userLast;
-email('acole@ashevillenc.gov','noreply@ashevillenc.gov','HRC Application: '+userName+' Attempted','An on-line HRC application has been attempted by '+aa.publicUser.getPublicUserByUserId("userID")+' and it requires your attention.');
-}
+	comment('Historic Resource Overlay – This application may require review by the Historic Resources Department. Please contact 828-259-5638 or Development Services at 828-259-5846 for more information.');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.LANDMARK'] == 'Yes') {
