@@ -167,7 +167,7 @@ if (parcel) {
 //Description:  Inform applicant to call Alex Cole.
 if (!appMatch('Services/*/*/*') && !appMatch('Permits/Sign/*/*') && paArray['ParcelAttribute.HRC OVERLAY'] == 'Yes') {
 	showMessage = true;
-	comment('Historic Resource Overlay – This application may require review by the Historic Resources Department. Please contact 828-259-5638 or Development Services at 828-259-5846 for more information.');
+	comment('Historic Resource Overlay &mdash; This application may require review by the Historic Resources Department. Please contact 828-259-5638 or Development Services at 828-259-5846 for more information.');
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
