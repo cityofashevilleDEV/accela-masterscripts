@@ -7824,3 +7824,4 @@ function isNull(pTestValue, pNewValue) {
     else
         return pTestValue;
 }
+
